@@ -9,7 +9,8 @@ const elements = {
     keyField: document.getElementById("key-input"),
     textField: document.getElementById("text-input"),
     encypherButton: document.getElementById("btn-encypher"),
-    decypherButton: document.getElementById("btn-decypher")
+    decypherButton: document.getElementById("btn-decypher"),
+    textOutput: document.getElementById("text-output")
 }
 
 // Adjuted modulo functions that work for the alphabet
@@ -39,7 +40,7 @@ const arrayModulo = (keyArray, textArray, direction) => {
 const getText = () => {
     let key = elements.keyField.value;
     let text = elements.textField.value;
-    return { key: tidyText(key), text: tidyText(text) };
+    return { key: tidyText(key), inputText: tidyText(text) };
 }
 
 const tidyText = (string) => {
@@ -84,7 +85,7 @@ const translate = (e, direction) => {
     message.direction = direction;
 
     // Convert strings to numbers
-    message.numericText = lettersToNumbers(message.text);
+    message.numericText = lettersToNumbers(message.inputText);
 
     // Extend the key to the same length as the message, if necessary
     if (message.key.length > message.numericText.length) {
@@ -94,16 +95,19 @@ const translate = (e, direction) => {
         message.numericKey = lettersToNumbers(message.key);
     }
 
-    // Depending on the directoon we're going, perform modular conversion
+    // Depending on the direction we're going, perform modular conversion
     if (direction == "encypher") {
         message.numericCyphertext = arrayModulo(message.numericKey, message.numericText, "add");
-        message.cyphertext = numbersToLetters(message.numericCyphertext);
+        message.outputText = numbersToLetters(message.numericCyphertext);
     } else if (direction == "decypher") {
         message.numericPlaintext = arrayModulo(message.numericKey, message.numericText, "subtract");
-        message.plaintext = numbersToLetters(message.numericPlaintext);
+        message.outputText = numbersToLetters(message.numericPlaintext);
     }
 
     console.log(message);
+    console.log(message.outputText);
+
+    elements.textOutput.innerHTML = message.outputText;
 }
 
 elements.encypherButton.addEventListener("click", (e) => {
