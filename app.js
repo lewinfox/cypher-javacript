@@ -96,16 +96,36 @@ const translate = (e, direction) => {
     }
 
     // Depending on the direction we're going, perform modular conversion
-    if (direction == "encypher") {
+    if (message.direction == "encypher") {
         message.numericCyphertext = arrayModulo(message.numericKey, message.numericText, "add");
         message.outputText = numbersToLetters(message.numericCyphertext);
-    } else if (direction == "decypher") {
+    } else if (message.direction == "decypher") {
         message.numericPlaintext = arrayModulo(message.numericKey, message.numericText, "subtract");
         message.outputText = numbersToLetters(message.numericPlaintext);
     }
 
     console.log(message);
     console.log(message.outputText);
+
+    // Format output text box to match buttons
+    if (message.direction == "encypher") {
+        // TODO: Make this neater
+        elements.textOutput.classList.remove("alert-secondary");
+        elements.textOutput.classList.remove("alert-warning");
+        elements.textOutput.classList.add("alert-success");
+        elements.decypherButton.classList = "btn btn-warning";
+        elements.encypherButton.classList = "btn btn-outline-success";
+        elements.encypherButton.innerHTML = "Encyphered"
+        elements.decypherButton.innerHTML = "Decypher"
+    } else if (message.direction == "decypher") {
+        elements.textOutput.classList.remove("alert-secondary");
+        elements.textOutput.classList.remove("alert-success");
+        elements.textOutput.classList.add("alert-warning");
+        elements.decypherButton.classList = "btn btn-outline-warning";
+        elements.encypherButton.classList = "btn btn-success";
+        elements.encypherButton.innerHTML = "Encypher"
+        elements.decypherButton.innerHTML = "Decyphered"
+    }
 
     elements.textOutput.innerHTML = message.outputText;
 }
