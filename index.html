@@ -10,25 +10,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <h1>Cypher</h1>
+                    <p>Javascript implentation of the <a href="https://en.wikipedia.org/wiki/Vigenère_cipher">Vigenère cipher</a>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <form>
                         <div class="form-group">
-                            <label for="key-input">Key</label>
+                            <label for="key-input"><h4>Key</h4></label>
                             <input type="text" class="form-control" id="key-input" name="key-input" placeholder="Type or paste key here">
                         </div>
                         <div class="form-group">
-                            <label for="text-input">Plain or cyphertext</label>
+                            <label for="text-input"><h4>Plain or cyphertext</h4></label>
                             <textarea class="form-control" id="text-input" name="text-input" placeholder="Type or paste message text here"></textarea>
                         </div>
-
-                        <button id="btn-encypher" class="btn btn-lg btn-success">Encypher</button>
-                        <button id="btn-decypher" class="btn btn-lg btn-warning">Decypher</button>
                     </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button id="btn-encypher" class="btn btn-lg btn-success btn-block">Encypher</button>
+                </div>
+                <div class="col-6">
+                    <button id="btn-decypher" class="btn btn-lg btn-warning btn-block">Decypher</button>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-12">
-                    <div class="alert alert-secondary" id="text-output">
-                        <p class="text-justify">Output will appear here</p>
+                    <div class="alert alert-secondary invisible" id="text-output">
+
                     </div>
                 </div>
             </div>
