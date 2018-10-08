@@ -90,6 +90,9 @@ const translate = (e, direction) => {
     // Extend the key to the same length as the message, or truncate if necessary
     if (message.key.length > message.numericText.length) {
         message.key.length = message.numericText.length;
+        message.numericKey = lettersToNumbers(message.key);
+        // TODO: This causes NaNs to appear in the numericCyphertext array when
+        // arrayModulo is called below
     } else {
         message.key = repeatArray(message.key, message.numericText.length)
         message.numericKey = lettersToNumbers(message.key);
