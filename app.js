@@ -113,16 +113,16 @@ const translate = (e, direction) => {
         elements.textOutput.classList.remove("alert-secondary");
         elements.textOutput.classList.remove("alert-warning");
         elements.textOutput.classList.add("alert-success");
-        elements.decypherButton.classList = "btn btn-warning";
-        elements.encypherButton.classList = "btn btn-outline-success";
+        elements.decypherButton.classList = "btn btn-lg btn-warning";
+        elements.encypherButton.classList = "btn btn-lg btn-outline-success";
         elements.encypherButton.innerHTML = "Encyphered"
         elements.decypherButton.innerHTML = "Decypher"
     } else if (message.direction == "decypher") {
         elements.textOutput.classList.remove("alert-secondary");
         elements.textOutput.classList.remove("alert-success");
         elements.textOutput.classList.add("alert-warning");
-        elements.decypherButton.classList = "btn btn-outline-warning";
-        elements.encypherButton.classList = "btn btn-success";
+        elements.decypherButton.classList = "btn btn-lg btn-outline-warning";
+        elements.encypherButton.classList = "btn btn-lg btn-success";
         elements.encypherButton.innerHTML = "Encypher"
         elements.decypherButton.innerHTML = "Decyphered"
     }
