@@ -87,9 +87,9 @@ const translate = (e, direction) => {
     // Convert strings to numbers
     message.numericText = lettersToNumbers(message.inputText);
 
-    // Extend the key to the same length as the message, if necessary
+    // Extend the key to the same length as the message, or truncate if necessary
     if (message.key.length > message.numericText.length) {
-        console.log("Key too long - truncating");
+        message.key.length = message.numericText.length;
     } else {
         message.key = repeatArray(message.key, message.numericText.length)
         message.numericKey = lettersToNumbers(message.key);
