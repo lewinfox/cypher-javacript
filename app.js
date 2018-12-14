@@ -1,8 +1,4 @@
-// import { modulo_add, modulo_subtract } from "modulo";
-
 console.log("app.js connected");
-
-
 
 const elements = {
     keyField: document.getElementById("key-input"),
