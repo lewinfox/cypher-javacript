@@ -154,3 +154,14 @@ const translate = (inputText, key, direction) => {
 
     return message;
 }
+
+/**
+ * Add a space after every nth character
+ * @param {!string} string
+ * @param {number} [n=4] Size of the groups to separate
+ */
+const addSpaces = (string, n=4) => {
+  regex = new RegExp(`.{${n}}`, "g");
+  result = string.replace(regex, (match) => `${match} `);
+  return result;
+ }
