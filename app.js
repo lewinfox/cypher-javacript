@@ -31,6 +31,8 @@ const perform_translation = (e, direction) => {
         elements.encypherButton.classList = "btn btn-lg btn-outline-success btn-block";
         elements.encypherButton.innerHTML = "Encyphered"
         elements.decypherButton.innerHTML = "Decypher"
+        // Add four-letter spacing to encyphered output
+        message.outputText = addSpaces(message.outputText, 4);
     } else if (message.direction == "decypher") {
         elements.textOutput.classList.remove("alert-secondary");
         elements.textOutput.classList.remove("alert-success");
